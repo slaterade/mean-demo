@@ -6,6 +6,9 @@
 /frontend/out-tsc
 /backend/images
 
+# environment vars
+/backend/.env
+
 # Only exists if Bazel was run
 /frontend/bazel-out
 
