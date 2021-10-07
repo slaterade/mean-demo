@@ -2,10 +2,11 @@
   "name": "mean-demo",
   "version": "1.0.0",
   "private": true,
-  "start:server": "nodemon server.js",
+  "start": "node server.js",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
+    "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.0.9",

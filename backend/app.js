@@ -7,13 +7,14 @@ const userRoutes = require("./routes/user");
 
 const app = express();
 
-// TODO: read the username and password from a file on the server
+const { MONGO_ATLAS_USER, MONGO_ATLAS_PASS } = require("./config");
+
 mongoose
   .connect(
     "mongodb+srv://" +
-      process.env.MONGO_ATLAS_USER +
+      MONGO_ATLAS_USER +
       ":" +
-      process.env.MONGO_ATLAS_PASS +
+      MONGO_ATLAS_PASS +
       "@cluster0.otwwp.mongodb.net/meangreen?retryWrites=true&w=majority"
   )
   .then(() => {
