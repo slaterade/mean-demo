@@ -8,6 +8,7 @@ const userRoutes = require("./routes/user");
 const app = express();
 
 const { MONGO_ATLAS_USER, MONGO_ATLAS_PASS } = require("./config");
+const MONGO_ATLAS_DBNAME = "mean-demo";
 
 mongoose
   .connect(
@@ -15,10 +16,12 @@ mongoose
       MONGO_ATLAS_USER +
       ":" +
       MONGO_ATLAS_PASS +
-      "@cluster0.otwwp.mongodb.net/meangreen?retryWrites=true&w=majority"
+      "@cluster0.otwwp.mongodb.net/" +
+      MONGO_ATLAS_DBNAME +
+      "?retryWrites=true&w=majority"
   )
   .then(() => {
-    console.log("Connected to database.");
+    console.log("Connected to database \"" + MONGO_ATLAS_DBNAME + "\"");
   })
   .catch(() => {
     console.log("Failed to connect database.");

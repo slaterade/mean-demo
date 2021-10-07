@@ -44,7 +44,9 @@ exports.updatePost = (req, res, next) => {
       if (result.matchedCount > 0) {
         res.status(200).json({ message: "Update successful." });
       } else {
-        res.status(401).json({ message: "Not authorized to edit (server side)." });
+        res
+          .status(401)
+          .json({ message: "Not authorized to edit (server side)." });
       }
     })
     .catch((error) => {

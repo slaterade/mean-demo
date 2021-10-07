@@ -5,20 +5,20 @@ import { AuthService } from '../auth.service';
 
 @Component({
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit, OnDestroy {
   isLoading = false;
-  private authStatusSub: Subscription = new Subscription;
+  private authStatusSub: Subscription = new Subscription();
 
   constructor(public authService: AuthService) {}
 
   ngOnInit() {
-    this.authStatusSub = this.authService.getAuthStatusListener().subscribe(
-      authStatus => {
+    this.authStatusSub = this.authService
+      .getAuthStatusListener()
+      .subscribe((authStatus) => {
         this.isLoading = false;
-      }
-    );
+      });
   }
 
   onLogin(form: NgForm) {

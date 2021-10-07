@@ -52,12 +52,12 @@ exports.userLogin = (req, res, next) => {
       res.status(200).json({
         token: token,
         expiresIn: 3600, // duration in seconds
-        userId: fetchedUser._id
+        userId: fetchedUser._id,
       });
     })
     .catch((err) => {
       return res.status(401).json({
-        message: "Invalid auth..."
+        message: "Invalid auth...",
       });
     });
-}
+};

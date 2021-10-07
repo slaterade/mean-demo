@@ -7,19 +7,9 @@ const PostsController = require("../controllers/posts");
 
 const router = express.Router();
 
-router.post(
-  "",
-  checkAuth,
-  extractFile,
-  PostsController.createPost
-);
+router.post("", checkAuth, extractFile, PostsController.createPost);
 
-router.put(
-  "/:id",
-  checkAuth,
-  extractFile,
-  PostsController.updatePost
-);
+router.put("/:id", checkAuth, extractFile, PostsController.updatePost);
 
 router.get("", PostsController.getPosts);
 

@@ -13,11 +13,7 @@ import { AngularMaterialModule } from './angular-material.module';
 import { PostsModule } from './posts/posts.module';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HeaderComponent,
-    ErrorComponent
-  ],
+  declarations: [AppComponent, HeaderComponent, ErrorComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -27,10 +23,10 @@ import { PostsModule } from './posts/posts.module';
     PostsModule,
   ],
   providers: [
-    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
-    {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true}
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
   ],
   bootstrap: [AppComponent],
-  entryComponents: [ErrorComponent]
+  entryComponents: [ErrorComponent],
 })
 export class AppModule {}

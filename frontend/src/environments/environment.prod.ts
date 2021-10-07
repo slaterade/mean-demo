@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: "https://meanie.us-west-1.elasticbeanstalk.com/api"
+  apiUrl: 'http://localhost:3000/api', // change this when hosting on github pages
 };
