@@ -21,7 +21,7 @@ mongoose
       "?retryWrites=true&w=majority"
   )
   .then(() => {
-    console.log("Connected to database \"" + MONGO_ATLAS_DBNAME + "\"");
+    console.log('Connected to database "' + MONGO_ATLAS_DBNAME + '"');
   })
   .catch(() => {
     console.log("Failed to connect database.");
@@ -33,7 +33,7 @@ app.use(
     extended: false,
   })
 );
-app.use("/images", express.static(path.join("images")));
+app.use("/images", express.static(path.join(__dirname, "images")));
 
 // allow RESTful API
 app.use((req, res, next) => {
