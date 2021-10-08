@@ -7,8 +7,7 @@ const userRoutes = require("./routes/user");
 
 const app = express();
 
-const { MONGO_ATLAS_USER, MONGO_ATLAS_PASS } = require("./config");
-const MONGO_ATLAS_DBNAME = "mean-demo";
+const { MONGO_ATLAS_USER, MONGO_ATLAS_PASS, MONGO_ATLAS_DBNAME, FRONTEND_PATH } = require("./config");
 
 mongoose
   .connect(
@@ -34,6 +33,7 @@ app.use(
   })
 );
 app.use("/images", express.static(path.join(__dirname, "images")));
+app.use("/", express.static(path.join(__dirname, FRONTEND_PATH)));
 
 // allow RESTful API
 app.use((req, res, next) => {
@@ -51,5 +51,8 @@ app.use((req, res, next) => {
 
 app.use("/api/posts", postsRoutes);
 app.use("/api/user", userRoutes);
+app.use((req, res, next) => {
+  res.sendFile(path.join(__dirname, FRONTEND_PATH, "index.html"));
+});
 
 module.exports = app;
